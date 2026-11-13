@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Sphinx documentation with an executed example gallery. Each example can be downloaded as a `.py` script or a Jupyter notebook, and each API page links to the examples that use it. The site is published to GitHub Pages by `.github/workflows/docs.yml`.
+- Examples rewritten as tutorial-style cells (`# %%`). They still run as plain scripts.
+
 ## 0.1.0 — first public version
 
 Restructured from the research script `main_arrays_parallel.py` and its helpers (`det_funcs.py`, `surf_reconstruction.py`).

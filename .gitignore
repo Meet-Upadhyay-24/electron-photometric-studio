@@ -14,3 +14,10 @@ examples/output/
 
 # pre-refactor research code (kept locally, not published)
 archive/
+
+# generated documentation
+docs/_build/
+docs/auto_examples/
+docs/generated/
+docs/gen_modules/
+docs/sg_execution_times.rst

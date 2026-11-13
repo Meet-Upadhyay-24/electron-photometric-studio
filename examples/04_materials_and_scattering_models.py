@@ -1,30 +1,39 @@
 """
-04 — Change the material and plug in your own scattering model.
+Materials and scattering models
+===============================
 
-A scattering model is any function ``g(cos_in, cos_out, cos_spec, material)``
-(see ``bse_recon.scattering``). Here we compare:
-
-* ``lambertian``            — cosine emission, constant yield (package default)
-* ``lambertian_incidence``  — cosine emission, yield rising with beam incidence angle
-* a user-defined model with a forward-peaked (specular) lobe
-
-Note that ``lambertian_incidence`` gives the same slopes as ``lambertian``: the
-incidence-dependent yield η(θ) scales all four detectors equally at each pixel,
-so it cancels in the normalised contrast. A directional (specular) lobe does
-not cancel and biases the estimate.
+How to change the material and plug in your own angular scattering model.
 """
-from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 import bse_recon as br
 
-OUT = Path(__file__).parent / "output"
-OUT.mkdir(exist_ok=True)
+# %%
+# Materials
+# ---------
+# A :class:`~bse_recon.Material` is a list of ``(atomic number, mass fraction)``
+# pairs. Its normal-incidence backscatter coefficient ``η0`` is the
+# mass-weighted mean of the elemental values.
 
 steel = br.Material("316L", ((26, 0.68), (24, 0.17), (28, 0.12), (42, 0.03)))
 print(f"η0  Ti-6Al-4V = {br.TI64.eta0:.3f}   316L = {steel.eta0:.3f}")
+
+# %%
+# Scattering models
+# -----------------
+# A scattering model is any function ``g(cos_in, cos_out, cos_spec, material)``
+# returning backscattered electrons per primary electron per steradian. Its
+# arguments are the cosines of three angles: beam incidence, emission towards
+# the detector element, and deviation from the mirror direction. The package
+# provides:
+#
+# * :func:`~bse_recon.lambertian`: cosine emission with constant yield (default)
+# * :func:`~bse_recon.lambertian_incidence`: cosine emission whose yield rises
+#   with the beam incidence angle
+#
+# The model below adds a forward-peaked lobe around the mirror direction:
 
 
 def lambert_plus_specular(cos_in, cos_out, cos_spec, material, weight=0.3, k=8):
@@ -33,6 +42,13 @@ def lambert_plus_specular(cos_in, cos_out, cos_spec, material, weight=0.3, k=8):
     lobe = (k + 1) / (2 * np.pi) * np.maximum(cos_spec, 0) ** k
     return material.eta0 * ((1 - weight) * diffuse + weight * lobe)
 
+
+# %%
+# Compare the models on a Gaussian hill
+# -------------------------------------
+# All three models are inverted with the same Lambertian slope formula, so any
+# difference between their results shows how much model error biases the
+# measurement.
 
 offset, height = 132.0, 87.0
 detectors = br.four_quadrant_detectors(diameter=80, tilt=75, offset=offset, height=height)
@@ -54,8 +70,13 @@ for name, model in models.items():
     z = br.integrate_gradients(gx, gy, s.dx, s.dy)
     print(f"{name:22s} RMSE {br.height_errors(s.heights, z)['rmse']:.4f} mm")
     ax.plot(s.x, gx[k], "--", label=name)
-ax.set(xlabel="x [mm]", ylabel="slope", title="Slope estimated under different scattering models (316L)")
+ax.set(xlabel="x [mm]", ylabel="slope", title="Slope along the centre row (316L)")
 ax.legend()
-fig.tight_layout()
-fig.savefig(OUT / "04_models.png", dpi=150)
+
+# %%
+# ``lambertian_incidence`` gives exactly the same slopes as ``lambertian``.
+# The incidence-dependent yield scales all four detectors equally at each
+# pixel, so it cancels in the normalised contrast. A directional (specular)
+# lobe does not cancel, and it biases the estimate.
+
 plt.show()

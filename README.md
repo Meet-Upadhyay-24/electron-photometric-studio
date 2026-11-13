@@ -9,13 +9,16 @@ surface ─► simulate_images ─► contrast ─► slopes_from_contrast ─�
            (per detector)      Mx, My        ∂h/∂x, ∂h/∂y            (Sylvester LSQ)
 ```
 
+**Documentation:** <https://meet-upadhyay-24.github.io/electron-photometric-studio/>. It covers the model, the API reference and a worked example gallery. Each example can be downloaded as a Jupyter notebook.
+
 ## Install
 
 ```bash
-git clone <repo-url>
-cd bse_recon
+git clone https://github.com/Meet-Upadhyay-24/electron-photometric-studio.git
+cd electron-photometric-studio
 pip install -e .            # numpy, scipy, matplotlib
 pip install -e ".[dev]"     # + pytest, ruff
+pip install -e ".[docs]"    # + Sphinx, to build the documentation
 ```
 
 ## Quick start
@@ -41,6 +44,8 @@ print(br.height_errors(surface.heights, z))   # {'rmse': ..., 'mae': ..., 'max':
 
 ## Examples
 
+The [example gallery](https://meet-upadhyay-24.github.io/electron-photometric-studio/auto_examples/index.html) shows each example rendered with its figures, plus `.py` and Jupyter notebook downloads.
+
 | Script | What it shows |
 |---|---|
 | [`01_detector_geometry.py`](examples/01_detector_geometry.py) | Shipped, generated and `.inp` detector meshes; placing them; the 4-detector layout |
@@ -50,7 +55,7 @@ print(br.height_errors(surface.heights, z))   # {'rmse': ..., 'mae': ..., 'max':
 | [`05_detector_design_sweep.py`](examples/05_detector_design_sweep.py) | Sweep tilt / height / diameter, write a CSV of errors |
 | [`06_your_own_surface.py`](examples/06_your_own_surface.py) | Simulate images of your own measured height map (`.npy`/`.csv`) |
 
-Each script writes its figures to `examples/output/`.
+Run any script directly (`python examples/02_simulate_and_reconstruct.py`) to open its figures. Examples 05 and 06 also save data to an `output/` folder.
 
 ## Model and conventions
 

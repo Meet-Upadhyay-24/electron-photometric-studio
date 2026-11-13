@@ -28,6 +28,11 @@ dependencies = [
 [project.optional-dependencies]
 science = ["scienceplots>=2.0.0"]
 dev = ["pytest>=7.0", "ruff>=0.5.0"]
+docs = ["sphinx>=7", "sphinx-gallery>=0.16", "furo", "myst-parser", "sphinx-copybutton"]
+
+[project.urls]
+Documentation = "https://meet-upadhyay-24.github.io/electron-photometric-studio/"
+Source = "https://github.com/Meet-Upadhyay-24/electron-photometric-studio"
 
 [tool.setuptools.dynamic]
 version = { attr = "bse_recon.__version__" }
