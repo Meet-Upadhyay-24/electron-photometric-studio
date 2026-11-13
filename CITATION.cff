@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "bse-recon: simulation of backscattered-electron photometric stereo"
+version: 0.1.0
+license: MIT
+authors:
+  - family-names: Upadhyay
+    given-names: Meet
+    affiliation: "University of British Columbia"
+# preferred-citation: add the journal article here once published

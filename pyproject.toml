@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bse-recon"
+dynamic = ["version"]
+description = "Simulate backscattered-electron photometric stereo: detector images, surface slopes and height reconstruction."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Meet Upadhyay", email = "meet.upadhyay@ubc.ca" }
+]
+keywords = ["backscattered electrons", "photometric stereo", "electron beam", "powder bed fusion", "SEM", "surface reconstruction"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+  "numpy>=1.23",
+  "scipy>=1.9",
+  "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+science = ["scienceplots>=2.0.0"]
+dev = ["pytest>=7.0", "ruff>=0.5.0"]
+
+[tool.setuptools.dynamic]
+version = { attr = "bse_recon.__version__" }
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+bse_recon = ["data/*.inp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src/bse_recon"]
+addopts = "--doctest-modules --ignore=tests/data"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["archive"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]

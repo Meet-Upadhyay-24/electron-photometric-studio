@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.venv/
+.idea/
+.vscode/
+
+# example outputs
+examples/output/
+
+# pre-refactor research code (kept locally, not published)
+archive/
