@@ -77,8 +77,8 @@ class SurfaceGrid:
         return SurfaceGrid(self.x, self.y)
 
     def __repr__(self) -> str:
-        return (f"SurfaceGrid({self.shape[1]}×{self.shape[0]}, x=[{self.x[0]:g}, {self.x[-1]:g}], "
-                f"y=[{self.y[0]:g}, {self.y[-1]:g}], h∈[{self.heights.min():.3g}, {self.heights.max():.3g}])")
+        return (f"SurfaceGrid({self.shape[1]}x{self.shape[0]}, x=[{self.x[0]:g}, {self.x[-1]:g}], "
+                f"y=[{self.y[0]:g}, {self.y[-1]:g}], h=[{self.heights.min():.3g}, {self.heights.max():.3g}])")
 
 
 # -- synthetic height maps ------------------------------------------------------

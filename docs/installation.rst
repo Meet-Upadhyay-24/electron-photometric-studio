@@ -1,7 +1,7 @@
 Installation
 ============
 
-``bse-recon`` needs Python 3.9 or newer, plus NumPy, SciPy and Matplotlib.
+``bse-recon`` needs Python 3.10 or newer, plus NumPy, SciPy and Matplotlib.
 
 From source:
 

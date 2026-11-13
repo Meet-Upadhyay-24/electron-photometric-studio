@@ -7,7 +7,7 @@ name = "bse-recon"
 dynamic = ["version"]
 description = "Simulate backscattered-electron photometric stereo: detector images, surface slopes and height reconstruction."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
   { name = "Meet Upadhyay", email = "meet.upadhyay@ubc.ca" }

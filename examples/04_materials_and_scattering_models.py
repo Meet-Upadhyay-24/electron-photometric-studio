@@ -18,7 +18,7 @@ import bse_recon as br
 # mass-weighted mean of the elemental values.
 
 steel = br.Material("316L", ((26, 0.68), (24, 0.17), (28, 0.12), (42, 0.03)))
-print(f"η0  Ti-6Al-4V = {br.TI64.eta0:.3f}   316L = {steel.eta0:.3f}")
+print(f"eta0  Ti-6Al-4V = {br.TI64.eta0:.3f}   316L = {steel.eta0:.3f}")
 
 # %%
 # Scattering models

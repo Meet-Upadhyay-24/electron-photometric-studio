@@ -40,7 +40,7 @@ for tilt, h, dia in itertools.product(tilts, heights, diameters):
     gx, gy = br.estimate_slopes(br.simulate_images(s, dets, source), s.X, s.Y, offset, h)
     err = br.height_errors(s.heights, br.integrate_gradients(gx, gy, s.dx, s.dy))
     rows.append((tilt, h, dia, err["rmse"]))
-    print(f"tilt {tilt:3d}°  height {h:4d}  diameter {dia:3d}  →  RMSE {err['rmse']:.4f} mm")
+    print(f"tilt {tilt:3d} deg  height {h:4d}  diameter {dia:3d}  ->  RMSE {err['rmse']:.4f} mm")
 
 # %%
 # Compare the designs
