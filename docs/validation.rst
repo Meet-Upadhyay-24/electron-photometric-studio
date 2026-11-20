@@ -6,7 +6,8 @@ The test suite (``pytest``) checks the package in two ways.
 Against the original research code
 ----------------------------------
 
-The original code, and the notebook that produced the publication figures,
+The original code, and the notebook that produced the figures of the
+`accompanying article <https://doi.org/10.1016/j.jmapro.2026.05.034>`_,
 were rerun for 8 scenarios: the beam-position study, the detector-asymmetry
 study and the detector-diameter study. Their outputs are stored in
 ``tests/data``, and the scripts that generated them sit alongside.

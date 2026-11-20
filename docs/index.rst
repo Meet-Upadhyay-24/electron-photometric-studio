@@ -23,6 +23,17 @@ or estimate measurement error before building hardware.
 - :doc:`model`: the physics, assumptions and sign conventions
 - :doc:`api`: every public function and class
 
+Citing
+------
+
+If you use ``bse-recon``, please cite:
+
+   Upadhyay, M.; McDonald, T.; Horn, T.; Britton, T. B.; Sinclair, C.; Maijer, D.
+   *Enhancing backscatter electron based surface height reconstructions in electron
+   beam powder bed fusion and exploring correlations to porosity.* Journal of
+   Manufacturing Processes **172**, 54–69 (2026).
+   https://doi.org/10.1016/j.jmapro.2026.05.034
+
 .. toctree::
    :maxdepth: 2
    :hidden:

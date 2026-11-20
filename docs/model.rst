@@ -118,6 +118,8 @@ References
 
 - Arnal, F.; Verdier, P.; Vincensini, P.-D. *C. R. Acad. Sci. Paris* **268**, 1526 (1969).
 - Harker, M.; O'Leary, P. *Least squares surface reconstruction from measured gradient fields.* CVPR (2008).
+  electron based surface height reconstructions in electron beam powder bed fusion and exploring
 - Renner, J. et al. *A Ray Tracing Model for Electron Optical Imaging in Electron Beam Powder Bed Fusion.*
   J. Manuf. Mater. Process. **7**, 87 (2023). https://doi.org/10.3390/jmmp7030087
-- Van Oosterom, A.; Strackee, J. *The Solid Angle of a Plane Triangle.* IEEE Trans. Biomed. Eng. **30**, 125 (1983).
+- Van Oosterom, A.; Strackee, J. *The Solid Angle of a Plane Triangle.* IEEE Trans. Biomed. Eng. **30**, 125–126 (1983).
+  https://doi.org/10.1109/TBME.1983.325207

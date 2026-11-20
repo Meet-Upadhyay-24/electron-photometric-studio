@@ -1,10 +1,33 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you use this software, please cite the accompanying article."
 title: "bse-recon: simulation of backscattered-electron photometric stereo"
 version: 0.1.0
 license: MIT
+repository-code: "https://github.com/Meet-Upadhyay-24/electron-photometric-studio"
+url: "https://meet-upadhyay-24.github.io/electron-photometric-studio/"
 authors:
   - family-names: Upadhyay
     given-names: Meet
     affiliation: "University of British Columbia"
-# preferred-citation: add the journal article here once published
+preferred-citation:
+  type: article
+  title: "Enhancing backscatter electron based surface height reconstructions in electron beam powder bed fusion and exploring correlations to porosity"
+  authors:
+    - family-names: Upadhyay
+      given-names: Meet
+    - family-names: McDonald
+      given-names: Trevor
+    - family-names: Horn
+      given-names: Tim
+    - family-names: Britton
+      given-names: T. Ben
+    - family-names: Sinclair
+      given-names: Chad
+    - family-names: Maijer
+      given-names: Daan
+  journal: "Journal of Manufacturing Processes"
+  volume: 172
+  start: 54
+  end: 69
+  year: 2026
+  doi: "10.1016/j.jmapro.2026.05.034"
